@@ -23,6 +23,7 @@
     group: "{{ backuppc_web_group }}"
     force: no
   with_items: '{{ backuppc_hosts }}'
+  when: backuppc_hosts|length > 0
   notify:
     - restart backuppc
   tags:
